@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CarritoProductos"
+    android:orientation="vertical"
+    android:weightSum="6"
+    android:background="@drawable/background3">
+
+    <LinearLayout
+        android:id="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imageButtonCategoria"
+            android:translationY="20dp"
+            android:layout_width="0dp"
+            android:layout_height="80dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_baseline_chevron_left_24"
+            ></ImageButton>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="Carrito de Productos"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewProductos3"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layout"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <Button
+        android:id="@+id/botonFacturaCarrito"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:text="FACTURAR"
+        android:textSize="12sp"
+        android:textColor="@color/white"
+        app:cornerRadius="50dp"
+        android:backgroundTint="#ef5350"/>
+
+</RelativeLayout>

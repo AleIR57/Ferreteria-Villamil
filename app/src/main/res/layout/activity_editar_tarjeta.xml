@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".EditarTarjeta"
+    android:orientation="vertical"
+    android:weightSum="11"
+    android:background="@drawable/background3">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:gravity="center"
+        android:text="Editar tarjeta"
+        android:textColor="@color/white"
+        android:textSize="30sp" />
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <EditText
+            android:id="@+id/EditTextNombreTitular"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:ems="14"
+            android:gravity="left|center"
+            android:hint="Nombre"
+            android:paddingLeft="12sp"
+
+            android:inputType="text"
+            android:textColor="#ef5350" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <EditText
+            android:id="@+id/EditTextNumeroTarjeta"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:ems="14"
+            android:gravity="left|center"
+            android:hint="Numero de la tarjeta"
+            android:paddingLeft="12sp"
+            android:textColor="#ef5350" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <EditText
+            android:id="@+id/EditTextCodigoCVC"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:ems="14"
+            android:gravity="left|center"
+            android:hint="Código CVV/CVC"
+            android:inputType="textPassword"
+
+            android:paddingLeft="12sp"
+            android:textColor="#ef5350" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <EditText
+            android:id="@+id/EditTextFechaExpiracion"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:ems="14"
+            android:gravity="left|center"
+            android:hint="Fecha de expiración"
+            android:inputType="number"
+
+            android:paddingLeft="12sp"
+            android:textColor="#ef5350" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+
+        <EditText
+            android:id="@+id/EditTextNombreEntidad"
+            android:layout_width="wrap_content"
+            android:layout_height="39dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:background="@drawable/borde_redondo"
+            android:ems="14"
+            android:gravity="left|center"
+            android:hint="Nombre de la entidad bancaria"
+            android:inputType="text"
+
+            android:paddingLeft="12sp"
+            android:textColor="#ef5350" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/botonEditar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="2"
+
+            android:layout_gravity="center"
+            android:text="EDITAR"
+            android:textSize="12sp"
+            android:textColor="@color/white"
+            app:cornerRadius="50dp"
+            android:backgroundTint="#ef5350"/>
+
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

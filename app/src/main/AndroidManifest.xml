@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.ferreteriavillamil">
+    <!--
+         The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
+         Google Maps Android API v2, but you must specify either coarse or fine
+         location permissions for the "MyLocation" functionality.
+    -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.DOWNLOAD_WITHOUT_NOTIFICATION" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/iconolauncher"
+        android:label="@string/app_name"
+        android:roundIcon="@drawable/iconolauncher"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.FerreteriaVillamil"
+        android:usesCleartextTraffic="true">
+        <activity android:name=".Estadisticas"></activity>
+        <activity android:name=".GestionDomicilio" />
+        <activity android:name=".ApartadoDomicilios" />
+        <activity android:name=".Proveedor" />
+        <activity android:name=".Domicilio" />
+        <!--
+             The API key for Google Maps-based APIs is defined as a string resource.
+             (See the file "res/values/google_maps_api.xml").
+             Note that the API key is linked to the encryption key used to sign the APK.
+             You need a different API key for each encryption key, including the release key that is used to
+             sign the APK for publishing.
+             You can define the keys for the debug and release targets in src/debug/ and src/release/.
+        -->
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
+        <activity android:name=".Informes" />
+        <activity android:name=".Informacion" />
+        <activity android:name=".GestionProductos2" />
+        <activity android:name=".FacturaCarrito2" />
+        <activity android:name=".CrearProductos2" />
+        <activity android:name=".VentaProductos2" />
+        <activity android:name=".EditarTarjeta" />
+        <activity android:name=".ApartadoTarjeta" />
+        <activity android:name=".ListAdapterProductoCarrito" />
+        <activity android:name=".FacturaCarrito" />
+        <activity android:name=".CarritoProductos" />
+        <activity android:name=".Factura" />
+        <activity android:name=".VentaProducto" />
+        <activity android:name=".DetalleProducto" />
+        <activity android:name=".ApartadoProductos2" />
+        <activity android:name=".apartado_productos2" />
+        <activity android:name=".ApartadoCategorias3" />
+        <activity android:name=".list_element4" />
+        <activity android:name=".ApartadoCategorias2" />
+        <activity android:name=".GestionProductos" />
+        <activity android:name=".CrearProductos" />
+        <activity android:name=".GestionCategoria" />
+        <activity android:name=".CrearCategorias" />
+        <activity android:name=".ApartadoProductos" />
+        <activity android:name=".ApartadoCategorias" />
+        <activity android:name=".ApartadoAlmacen" />
+        <activity android:name=".CrearUsuarios" />
+        <activity android:name=".DescriptionActivity" />
+        <activity android:name=".ListAdapter2" />
+        <activity android:name=".ApartadoUsuarios" />
+
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+        <activity android:name=".Clientes" />
+        <activity android:name=".Administrador" />
+        <activity android:name=".RegistroUsuario" />
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

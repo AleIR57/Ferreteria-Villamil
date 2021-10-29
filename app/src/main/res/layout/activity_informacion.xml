@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Informacion"
+    android:orientation="vertical"
+    android:weightSum="10"
+    android:background="@drawable/background3">
+
+    <LinearLayout
+        android:id="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.8"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imageButtonVolver"
+            android:translationY="22dp"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_baseline_chevron_left_24"
+            ></ImageButton>
+
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="Ferretería Villamil No.2"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="2"
+        android:orientation="horizontal"
+        android:weightSum="4">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <ImageView
+            android:id="@+id/imageViewFerreteria"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/image" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/textViewLema"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="Los mejores productos para construir los mejores sueños."
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5" />
+
+    <TextView
+        android:id="@+id/textViewMision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="Misión"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.6"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textViewDescripcion"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.4"
+            android:gravity="center"
+            android:text="Proveer soluciones con materiales y herramientas de ferretería para la construcción civil, pequeña industria y artesanía, manejando un surtido completo y permanente que permita llegar a los clientes con un servicio oportuno de alta calidad a un precio competitivo. Ofrecer la mejor atención posible a sus clientes a través de un personal altamente capacitado, eficiente y responsable."
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+    </LinearLayout>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.5" />
+
+    <TextView
+        android:id="@+id/textViewVision"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2"
+        android:gravity="center"
+        android:text="Visión"
+        android:textColor="@color/black"
+        android:textSize="15sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2.6"
+        android:orientation="horizontal"
+        android:weightSum="3">
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+        <com.codesgood.views.JustifiedTextView
+            android:id="@+id/textViewDescripcion2"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.4"
+            android:gravity="center"
+            android:text="Ser reconocidos como distribuidores y detallistas líderes en proveer soluciones completas en materiales de ferretería, productos de línea industrial y semi-industrial cuya atención al cliente brinda un portafolio de servicios complementarios y de calidad creando valor económico a través de la búsqueda de la excelencia y su expansión en el mercado colombiano."
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.3" />
+
+    </LinearLayout>
+
+
+
+
+
+</LinearLayout>

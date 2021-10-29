@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <EditText
+        android:hint="Nombre del titular de la tarjeta"
+        android:id="@+id/etnombretitular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="Número de la tarjeta"
+        android:id="@+id/etnumerotarjeta"
+        android:layout_below="@+id/etnombretitular"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="Código CVV/CVC"
+        android:id="@+id/etcodigocvc"
+        android:layout_below="@+id/etnumerotarjeta"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <EditText
+        android:hint="Fecha de expiración"
+        android:id="@+id/etfechaexpiracion"
+        android:layout_below="@+id/etcodigocvc"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:hint="Nombre de la entidad bancaria"
+        android:id="@+id/etentidadbancaria"
+        android:layout_below="@+id/etfechaexpiracion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+</RelativeLayout>

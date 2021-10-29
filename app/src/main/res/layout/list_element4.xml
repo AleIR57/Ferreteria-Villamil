@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app = "http://schemas.android.com/apk/res-auto"
+    android:id="@+id/cv"
+    android:layout_width="match_parent"
+    android:layout_height = "wrap_content"
+    android:animateLayoutChanges="true"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="8dp"
+    app:cardUseCompatPadding="true"
+    android:onClick="activityApartadoProductos"
+    android:clickable="true"
+    android:layout_margin = "12dp"
+    android:layout_gravity = "fill"
+    android:layout_row = "0"
+    android:layout_column = "0">
+
+
+        <RelativeLayout
+            android:layout_width = "match_parent"
+            android:layout_height = "wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_margin="8dp"
+            android:layout_gravity="center_vertical|center_horizontal">
+
+            <ImageView
+                android:id="@id/iconImageViewCategoria"
+                android:layout_width="match_parent"
+                android:layout_height="180dp"
+
+                />
+
+            <TextView
+                android:id="@+id/nameTextView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="CATEGORÍAS"
+                android:textColor="@color/black"
+                android:textAlignment="center"
+                android:layout_below="@+id/iconImageViewCategoria"
+                 />
+
+        </RelativeLayout>
+
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2" />
+
+</androidx.cardview.widget.CardView>
+

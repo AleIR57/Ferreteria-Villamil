@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Clientes"
+    android:background="@drawable/background4">
+
+    <Space
+        android:id="@+id/espacio2"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:layout_weight="1" />
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_weight="1"
+        android:gravity="center|top"
+        android:layout_below="@+id/espacio2"
+        android:text="Categoría de productos"
+        android:textColor="@color/white"
+        android:textSize="30sp"
+        />
+
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewCategoriasClientes"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/textView"
+        android:layout_height="match_parent"
+        android:layout_weight="1" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCliente"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="16dp"
+        android:backgroundTint="#ef5350"
+        android:src="@drawable/ic_baseline_add_24"
+        app:fabCustomSize="50dp"
+
+        />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCliente2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="15dp"
+        android:visibility="invisible"
+        android:layout_marginBottom="78dp"
+        android:backgroundTint="#ef5350"
+        android:src="@drawable/ic_baseline_add_shopping_cart_24"
+        app:fabCustomSize="50dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCliente3"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="141dp"
+        android:backgroundTint="#ef5350"
+        android:src="@drawable/ic_baseline_credit_card_24"
+        android:visibility="invisible"
+        app:fabCustomSize="50dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCliente4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="205dp"
+        android:backgroundTint="#ef5350"
+        android:src="@drawable/ic_baseline_info_24"
+        android:visibility="invisible"
+        app:fabCustomSize="50dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fabCliente5"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="14dp"
+        android:layout_marginBottom="269dp"
+        android:backgroundTint="#ef5350"
+        android:src="@drawable/ic_baseline_qr_code_24"
+        android:visibility="invisible"
+        app:fabCustomSize="50dp" />
+
+
+</RelativeLayout>

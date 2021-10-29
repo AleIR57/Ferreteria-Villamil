@@ -1,0 +1,378 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".FacturaCarrito2"
+    android:orientation="vertical"
+    android:weightSum="29.5"
+    android:background="@drawable/background4">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="3"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imageButtonVolver"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_baseline_chevron_left_24"
+            ></ImageButton>
+
+        <TextView
+            android:id="@+id/textView22"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="Factura de venta"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+
+        <ImageButton
+            android:id="@+id/imageButtonDomicilio"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_baseline_chevron_right_24"></ImageButton>
+
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="4"
+        android:orientation="horizontal"
+        android:background="@layout/border"
+        android:weightSum="6">
+
+        <ImageView
+            android:id="@+id/imageViewFerreteria"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@drawable/image" />
+
+
+        <TextView
+            android:id="@+id/textView20"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="4"
+            android:gravity="center"
+            android:background="@layout/border"
+            android:text="MARCO VILLAMIL ROBLES NIT: 14.932.912-2\nPINTURA-THINNER-AGUARRAS-ELÉCTRICOS\nTORNILLERÍA EN GENERAL,MILIMÉTRICA\nYESO-SOLDADURA ELÉCTRICA\nACCESORIOS-PVC-PEGANTES\nCEMENTO BLANCO Y GRIS\n"
+            android:textColor="#D5555555"
+            android:textSize="12sp" />
+
+    </LinearLayout>
+
+
+
+    <TextView
+        android:id="@+id/textView21"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:background="@layout/border"
+        android:text="CALLE 36 No. 31-07 AVENIDA SIMON BOLIVAR TELEFAX: 400 8805 CALI - COLOMBIA"
+        android:textColor="#D5555555"
+        android:textSize="10sp" />
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2" />
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1.2"
+        android:orientation="horizontal"
+        android:background="@layout/border"
+        android:weightSum="2">
+
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@layout/border"
+            android:gravity="center"
+            android:text="Fecha:"
+            android:textColor="#D5555555"
+            android:textSize="20sp" />
+        <TextView
+            android:id="@+id/textViewFecha"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:background="@layout/border"
+            android:text="Fecha"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+
+
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:background="@layout/border"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/textViewNombreUsuarioTexto"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nombre del cliente:"
+            android:background="@layout/border"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewNombreUsuario"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:background="@layout/border"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Nombre Usuario"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+
+    </LinearLayout>
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.2" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="15"
+        android:orientation="horizontal"
+        android:background="@layout/border"
+        android:weightSum="7">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:background="@layout/border"
+            android:orientation="vertical"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/textViewCantidadTexto"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Cantidad"
+                android:background="@layout/border"
+                android:textColor="#D5555555"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewCantidadTexto2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Cantidad"
+                android:textColor="#D5555555"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.02"
+            android:background="@layout/border"
+            android:orientation="vertical"
+            android:weightSum="11">
+
+            <TextView
+                android:id="@+id/textViewNombreProductoTexto"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.2"
+                android:gravity="center"
+                android:text="Detalle"
+                android:textColor="#D5555555"
+                android:background="@layout/border"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewNombreProductoTexto2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2.2"
+                android:gravity="center"
+                android:text="Detalle"
+                android:textColor="#D5555555"
+                android:textSize="12sp" />
+
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2"
+            android:orientation="vertical"
+            android:background="@layout/border"
+            android:weightSum="10">
+
+            <TextView
+                android:id="@+id/textViewPrecioTexto"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Precio"
+                android:background="@layout/border"
+                android:textColor="#D5555555"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/textViewPrecioTexto2"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="2"
+                android:gravity="center"
+                android:text="Precio"
+                android:textColor="#D5555555"
+                android:textSize="12sp" />
+
+        </LinearLayout>
+
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@layout/border"
+
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/ivaTotal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.57"
+            android:gravity="center"
+            android:text="IVA"
+            android:background="@layout/border"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewIva"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.42"
+            android:gravity="center"
+            android:text="19%"
+            android:background="@layout/border"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:background="@layout/border"
+        android:orientation="horizontal"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/textViewPrecioTotalTexto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.57"
+            android:gravity="center"
+            android:text="Precio Total"
+            android:background="@layout/border"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/textViewPrecioTotalproducto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1.42"
+            android:gravity="center"
+            android:background="@layout/border"
+            android:text="Precio Total"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@layout/border"
+        android:weightSum="2">
+
+        <TextView
+            android:id="@+id/textViewCantidadTotalTexto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="0.57"
+            android:gravity="center"
+            android:text="Cantidad Total"
+            android:background="@layout/border"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+
+        <TextView
+            android:id="@+id/textViewCantidadTotalProducto"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:background="@layout/border"
+            android:layout_weight="1.42"
+            android:gravity="center"
+            android:text="Cantidad Total"
+            android:textColor="#D5555555"
+            android:textSize="18sp" />
+
+    </LinearLayout>
+
+</LinearLayout>
