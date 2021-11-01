@@ -10,6 +10,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -29,9 +30,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApartadoUsuarios extends AppCompatActivity {
+public class ApartadoUsuarios extends AppCompatActivity implements SearchView.OnQueryTextListener{
 
-
+    SearchView txtBuscar;
     List<ListElement> elements;
     FloatingActionButton fab;
     String nombreAux, correoAux, contrasenaAux, direccionAux;
@@ -44,9 +45,10 @@ public class ApartadoUsuarios extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background3);
         setContentView(R.layout.activity_apartado_usuarios);
         administrador = findViewById(R.id.imageButtonAdministrador);
-
+        txtBuscar = findViewById(R.id.txtBuscar);
         init();
         elements = new ArrayList<>();
         fab = findViewById(R.id.fab);
@@ -113,6 +115,7 @@ public class ApartadoUsuarios extends AppCompatActivity {
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new LinearLayoutManager(ApartadoUsuarios.this));
                             recyclerView.setAdapter(listAdapter);
+                            txtBuscar.setOnQueryTextListener(ApartadoUsuarios.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -141,9 +144,14 @@ public class ApartadoUsuarios extends AppCompatActivity {
     }
 
 
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
 
-
-
-
-
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listAdapter.filtrado(newText);
+        return false;
+    }
 }

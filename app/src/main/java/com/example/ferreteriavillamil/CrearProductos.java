@@ -150,7 +150,8 @@ public class CrearProductos extends AppCompatActivity {
                         precio.setText("");
                         imagen.setText("");
                         cantidad.setText("");
-                        Intent vApartado = new Intent(CrearProductos.this, ApartadoCategorias2.class);
+                        Intent vApartado = new Intent(CrearProductos.this, ApartadoProductos.class);
+                        vApartado.putExtra("idCategoria", idCategoria);
                         startActivity(vApartado);
                     }
                 });

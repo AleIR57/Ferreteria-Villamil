@@ -34,6 +34,7 @@ public class Factura extends AppCompatActivity {
 
     TextView nombreTV, nombreUsuarioTV, marcaTV, precioTV, cantidadTV, fechaTV, precioTotalTV, cantidadTotalTV;
     String idUsuario;
+    String idCategoria;
     String idVenta;
     String marca;
     String nombreProducto;
@@ -41,6 +42,7 @@ public class Factura extends AppCompatActivity {
     String precio;
     String idProducto;
     String cantidad;
+    String cantidad2;
     String fecha;
     String idPagoSpinner;
     ImageButton domicilio, regresar;
@@ -58,12 +60,14 @@ public class Factura extends AppCompatActivity {
         System.out.println("El id del usuario es: " + idUsuario);
         idProducto = getIntent().getStringExtra("VentaProductoID");
         System.out.println("El id del producto es: " + idProducto);
+        idCategoria = getIntent().getStringExtra("VentaProductoIdCategoria");
         nombreProducto= getIntent().getStringExtra("VentaProductoNombre");
         marca = getIntent().getStringExtra("VentaProductoMarca");
         descripcion =  getIntent().getStringExtra("VentaProductoDescripcion");
         precio = getIntent().getStringExtra("VentaProductoPrecio");
         int precio2 = Integer.parseInt(precio);
         cantidad = getIntent().getStringExtra("VentaProductoCantidad");
+        cantidad2 = getIntent().getStringExtra("VentaProductoCantidad2");
         fecha = getIntent().getStringExtra("VentaProductoFecha");
         idVenta = getIntent().getStringExtra("VentaProductoidVenta");
         idPagoSpinner = getIntent().getStringExtra("VentaProductoIdPago");
@@ -109,9 +113,15 @@ public class Factura extends AppCompatActivity {
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vDomicilio = new Intent(Factura.this, Clientes.class);
+                Intent vDomicilio = new Intent(Factura.this, VentaProducto.class);
                 vDomicilio.putExtra("idUsuario", idUsuario);
-                vDomicilio.putExtra("idFactura", String.valueOf(idFactura));
+                vDomicilio.putExtra("DetallesProductoID", String.valueOf(idProducto));
+                vDomicilio.putExtra("DetallesProductoNombre", String.valueOf(nombreProducto));
+                vDomicilio.putExtra("DetallesProductoMarca", String.valueOf(marca));
+                vDomicilio.putExtra("DetallesProductoDescripcion", String.valueOf(descripcion));
+                vDomicilio.putExtra("DetallesProductoPrecio", String.valueOf(precio));
+                vDomicilio.putExtra("DetallesProductoCantidad", String.valueOf(cantidad2));
+                vDomicilio.putExtra("DetallesProductoIdCategoria", String.valueOf(idCategoria));
                 startActivity(vDomicilio);
             }
         });

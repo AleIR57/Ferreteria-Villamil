@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,7 +25,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApartadoCategorias extends AppCompatActivity {
+public class ApartadoCategorias extends AppCompatActivity implements SearchView.OnQueryTextListener{
+    SearchView txtBuscar;
     List<ListElementCategoria> elements;
     FloatingActionButton fab;
     String nombreAux, imagenAux;
@@ -37,8 +39,10 @@ public class ApartadoCategorias extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background3);
         setContentView(R.layout.activity_apartado_categorias);
         almacen = findViewById(R.id.imageButtonAlmacen);
+        txtBuscar = findViewById(R.id.txtBuscar);
 
 
         init();
@@ -98,6 +102,7 @@ public class ApartadoCategorias extends AppCompatActivity {
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new LinearLayoutManager(ApartadoCategorias.this));
                             recyclerView.setAdapter(listAdapter);
+                            txtBuscar.setOnQueryTextListener(ApartadoCategorias.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -124,5 +129,16 @@ public class ApartadoCategorias extends AppCompatActivity {
     public void crearCategorias(){
         Intent vCrear = new Intent(this, CrearCategorias.class);
         startActivity(vCrear);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listAdapter.filtrado(newText);
+        return false;
     }
 }

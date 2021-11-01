@@ -46,9 +46,17 @@ public class DetalleProducto extends AppCompatActivity {
 
         idUsuario = getIntent().getStringExtra("idUsuario");
 
-        ListElementProducto element = (ListElementProducto) getIntent().getSerializableExtra("ListElementProducto");
-        idProducto = element.getIdProducto();
-        idCategoria = element.getIdCategoria();
+        try{
+            ListElementProducto element = (ListElementProducto) getIntent().getSerializableExtra("ListElementProducto");
+            idProducto = element.getIdProducto();
+            idCategoria = element.getIdCategoria();
+        }
+        catch(NullPointerException e ){
+            idCategoria = Integer.parseInt(getIntent().getStringExtra("idCategoria"));
+            idProducto = Integer.parseInt(getIntent().getStringExtra("idProducto"));
+        }
+
+
         new DetalleProducto.Consultar(DetalleProducto.this).execute();
         nombre = findViewById(R.id.textViewNombre);
         marca = findViewById(R.id.textViewMarca);
@@ -69,8 +77,8 @@ public class DetalleProducto extends AppCompatActivity {
         producto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vDomicilio = new Intent(DetalleProducto.this, Clientes.class);
-                vDomicilio.putExtra("idCategoria", idCategoria);
+                Intent vDomicilio = new Intent(DetalleProducto.this, ApartadoProductos2.class);
+                vDomicilio.putExtra("idCategoria", String.valueOf(idCategoria));
                 startActivity(vDomicilio);
             }
         });

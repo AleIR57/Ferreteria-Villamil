@@ -14,10 +14,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ListAdapterProductoCliente extends RecyclerView.Adapter<ListAdapterProductoCliente.ViewHolder>{
     private List<ListElementProducto> mData;
+    List<ListElementProducto> listaOriginal;
     private LayoutInflater mInflater;
     private Context context;
     final ListAdapterProductoCliente.OnItemClickListener listener;
@@ -34,6 +37,8 @@ public class ListAdapterProductoCliente extends RecyclerView.Adapter<ListAdapter
         this.context = context;
         this.mData = itemList;
         this.listener = listener;
+        listaOriginal = new ArrayList<>();
+        listaOriginal.addAll(itemList);
 
     }
 
@@ -61,7 +66,28 @@ public class ListAdapterProductoCliente extends RecyclerView.Adapter<ListAdapter
 
     public void setItems(List<ListElementProducto> items) {mData =  items;}
 
+    public void filtrado(String txtBuscar){
+        int longitud = txtBuscar.length();
+        if(longitud == 0){
+            mData.clear();
+            mData.addAll(listaOriginal);
+        }else{
+            if(android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N){
+                List<ListElementProducto> collecion = mData.stream().filter(i -> i.getName().toLowerCase().contains(txtBuscar.toLowerCase())).collect(Collectors.toList());
+                mData.clear();
+                mData.addAll(collecion);
+            }
+            else{
+                for (ListElementProducto c: listaOriginal){
+                    if(c.getName().toLowerCase().contains(txtBuscar.toLowerCase())){
+                        mData.add(c);
+                    }
+                }
+            }
 
+        }
+        notifyDataSetChanged();
+    }
 
 
     public class ViewHolder extends RecyclerView.ViewHolder{

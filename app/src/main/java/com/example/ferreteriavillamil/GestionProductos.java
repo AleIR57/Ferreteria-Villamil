@@ -103,6 +103,7 @@ public class GestionProductos extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "Producto eliminado correctamente", Toast.LENGTH_LONG).show();
                         Intent vApartado = new Intent(GestionProductos.this, ApartadoProductos.class);
+                        vApartado.putExtra("idCategoria", String.valueOf(idCategoria));
                         startActivity(vApartado);
                     }
                 });
@@ -212,6 +213,7 @@ public class GestionProductos extends AppCompatActivity {
                     public void run() {
                         Toast.makeText(context, "Producto modificado correctamente", Toast.LENGTH_LONG).show();
                         Intent vApartado = new Intent(GestionProductos.this, ApartadoProductos.class);
+                        vApartado.putExtra("idCategoria", String.valueOf(idCategoria));
                         startActivity(vApartado);
                     }
                 });

@@ -51,6 +51,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
     String precio;
     String idProducto, idCategoria;
     String cantidad;
+    String cantidad2;
     int cantidadAux;
     Spinner idPago;
     String imagen;
@@ -75,7 +76,14 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         descripcion =  getIntent().getStringExtra("DetallesProductoDescripcion");
         precio = getIntent().getStringExtra("DetallesProductoPrecio");
         cantidad = getIntent().getStringExtra("DetallesProductoCantidad");
-        imagen = getIntent().getStringExtra("DetallesProductoImagen");
+        cantidad2 = cantidad;
+        try{
+            imagen = getIntent().getStringExtra("DetallesProductoImagen");
+        }
+        catch(NullPointerException e ){
+            imagen = "";
+        }
+
         idCategoria = getIntent().getStringExtra("DetallesProductoIdCategoria");
         producto = findViewById(R.id.imageButtonProducto);
 
@@ -152,8 +160,10 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         producto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vDomicilio = new Intent(VentaProducto.this, Clientes.class);
+                Intent vDomicilio = new Intent(VentaProducto.this, DetalleProducto.class);
                 vDomicilio.putExtra("idCategoria", idCategoria);
+                vDomicilio.putExtra("idProducto", idProducto);
+                vDomicilio.putExtra("idUsuario", idUsuario);
                 startActivity(vDomicilio);
             }
         });
@@ -332,10 +342,12 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         intent.putExtra("VentaProductoNombre", nombreProducto);
         intent.putExtra("VentaProductoMarca", marca);
         intent.putExtra("VentaProductoCantidad", cantidadET.getText().toString());
+        intent.putExtra("VentaProductoCantidad2", cantidad2);
         intent.putExtra("VentaProductoPrecio", precio);
         intent.putExtra("VentaProductoFecha", fecha);
         intent.putExtra("VentaProductoIdPago", String.valueOf(idPagoSpinner));
         intent.putExtra("VentaProductoidVenta", contadorVentas2);
+        intent.putExtra("VentaProductoIdCategoria", idCategoria);
         startActivity(intent);
     }
 

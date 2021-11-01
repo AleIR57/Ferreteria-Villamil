@@ -30,13 +30,8 @@ public class CrearProductos2 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_crear_productos2);
 
-        try{
-            idCategoria = getIntent().getStringExtra("idCategoria");
-        }
-        catch(NullPointerException e){
 
-        }
-
+        idCategoria = getIntent().getStringExtra("idCategoria");
         codigoBarra= getIntent().getStringExtra("codigoBarra");
         nombre = (TextView) findViewById(R.id.EditTextNombreCrearProducto);
         marca = (TextView) findViewById(R.id.EditTextMarcaCrearProducto);
@@ -115,7 +110,8 @@ public class CrearProductos2 extends AppCompatActivity {
                         precio.setText("");
                         imagen.setText("");
                         cantidad.setText("");
-                        Intent vApartado = new Intent(CrearProductos2.this, ApartadoCategorias2.class);
+                        Intent vApartado = new Intent(CrearProductos2.this, ApartadoProductos.class);
+                        vApartado.putExtra("idCategoria", idCategoria);
                         startActivity(vApartado);
                     }
                 });

@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -24,8 +25,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ApartadoProductos2 extends AppCompatActivity {
-
+public class ApartadoProductos2 extends AppCompatActivity implements SearchView.OnQueryTextListener{
+    SearchView txtBuscar;
     List<ListElementProducto> elements;
     FloatingActionButton fab;
     ListAdapterProductoCliente listAdapter, objeto1;
@@ -39,12 +40,18 @@ public class ApartadoProductos2 extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        getWindow().setBackgroundDrawableResource(R.drawable.background4);
         idUsuario = getIntent().getStringExtra("idUsuario");
         setContentView(R.layout.activity_apartado_productos2);
         categoria = findViewById(R.id.imageButtonCategoria);
-
-        ListElementCategoria element = (ListElementCategoria) getIntent().getSerializableExtra("ListElementCategoria");
-        idCategoriaAux = element.getIdCategoria();
+        txtBuscar = findViewById(R.id.txtBuscar);
+        try{
+            ListElementCategoria element = (ListElementCategoria) getIntent().getSerializableExtra("ListElementCategoria");
+            idCategoriaAux = element.getIdCategoria();
+        }
+        catch(NullPointerException e ){
+            idCategoriaAux = Integer.parseInt(getIntent().getStringExtra("idCategoria"));
+        }
 
         loadProductos();
 
@@ -96,6 +103,7 @@ public class ApartadoProductos2 extends AppCompatActivity {
                             recyclerView.setHasFixedSize(true);
                             recyclerView.setLayoutManager(new LinearLayoutManager(ApartadoProductos2.this));
                             recyclerView.setAdapter(listAdapter);
+                            txtBuscar.setOnQueryTextListener(ApartadoProductos2.this);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -118,6 +126,17 @@ public class ApartadoProductos2 extends AppCompatActivity {
         intent.putExtra("ListElementProducto", item);
         intent.putExtra("idUsuario", idUsuario);
         startActivity(intent);
+    }
+
+    @Override
+    public boolean onQueryTextSubmit(String query) {
+        return false;
+    }
+
+    @Override
+    public boolean onQueryTextChange(String newText) {
+        listAdapter.filtrado(newText);
+        return false;
     }
 
 }

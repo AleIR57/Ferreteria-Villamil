@@ -7,7 +7,7 @@
     tools:context=".ApartadoCategorias"
     android:orientation="vertical"
     android:weightSum="1"
-    android:background="@drawable/background3"
+    android:windowSoftInputMode="adjustResize|stateAlwaysHidden"
     >
 
     <LinearLayout
@@ -23,7 +23,7 @@
             android:id="@+id/imageButtonAlmacen"
             android:translationY="20dp"
             android:layout_width="0dp"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_weight="0.5"
             android:background="@drawable/ic_baseline_chevron_left_24"
             ></ImageButton>
@@ -48,11 +48,17 @@
 
     </LinearLayout>
 
+    <SearchView
+        android:id="@+id/txtBuscar"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/layout"
+        android:layout_height="wrap_content"/>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewCategorias"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/layout"
+        android:layout_below="@+id/txtBuscar"
         android:layout_weight="1" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
