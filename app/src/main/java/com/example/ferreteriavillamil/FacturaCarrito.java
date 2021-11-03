@@ -373,7 +373,6 @@ public class FacturaCarrito extends AppCompatActivity implements ExampleDialoq2.
 
 
     private boolean registrar3() {
-        idFactura += 1;
         System.out.println("El id de la factura es: " + idFactura);
 
         boolean response = false;

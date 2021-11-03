@@ -56,17 +56,14 @@
         android:layout_height="match_parent"
         android:layout_weight="1" />
 
-    <Button
+
+    <ImageButton
         android:id="@+id/botonFacturaCarrito"
-        android:layout_width="100dp"
+        android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="16dp"
-        android:text="FACTURAR"
-        android:textSize="12sp"
-        android:textColor="@color/white"
-        app:cornerRadius="50dp"
-        android:backgroundTint="#ef5350"/>
+        android:background="@drawable/ic_baseline_chevron_right_24"/>
 
 </RelativeLayout>

@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -32,60 +34,112 @@ public class Estadisticas extends AppCompatActivity {
 
     PieChart pieChart;
     BarChart barChart;
-    String PRODUCTOXFACTURA_URL;
+    String PRODUCTOXFACTURA_URL, PRODUCTOXFACTURA_URL2;
     ArrayList<Integer> idProductos = new ArrayList<>();
+    ArrayList<Integer> idProductos2 = new ArrayList<>();
     ArrayList<Integer> cantidades = new ArrayList<>();
-    int cantidadesAux;
+    ArrayList<String> nombres = new ArrayList<>();
+    int cantidadesAux, idsAux;
+    String nombresAux;
+    JSONObject productoObject;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_estadisticas);
+        //Aux.setVisibility(View.INVISIBLE);
         loadProductosxFactura();
         pieChart = findViewById(R.id.idGraficoPastel);
         barChart = findViewById(R.id.idGraficoBarras);
         crearGraficoBarras();
         crearGraficoPastel();
 
-
-
-
     }
 
     public void loadProductosxFactura() {
 
-        PRODUCTOXFACTURA_URL = "http://192.168.1.15/api/productoxfactura/productosxfactura2.php";
-        StringRequest stringRequest = new StringRequest(Request.Method.GET, PRODUCTOXFACTURA_URL,
+
+        PRODUCTOXFACTURA_URL2 = "http://192.168.1.15/api/productoxfactura/nombreproductos.php";
+        StringRequest stringRequest2 = new StringRequest(Request.Method.GET, PRODUCTOXFACTURA_URL2,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
                         try {
-                            JSONArray productoxfactura = new JSONArray(response);
+                            JSONArray producto = new JSONArray(response);
 
-                            for (int i = 0; i < productoxfactura.length(); i++) {
-                                JSONObject productoxfacturaObject = productoxfactura.getJSONObject(i);
-                                if(idProductos.contains(productoxfacturaObject.getInt("idProducto"))){
-                                    int indice = idProductos.indexOf(productoxfacturaObject.getInt("idProducto"));
-                                    cantidadesAux += Integer.parseInt(productoxfacturaObject.getString("cantidad"));
-                                    int element = cantidades.get(indice);
-                                    int resultado = element + cantidadesAux;
-                                    cantidades.set(indice, resultado);
-                                    cantidadesAux = 0;
-                                }
-                                else{
-                                    idProductos.add(productoxfacturaObject.getInt("idProducto"));
-                                    cantidades.add(Integer.parseInt(productoxfacturaObject.getString("cantidad")));
-                                }
-
-                            }
-                            for(int j = 0; j < idProductos.size(); j++){
-                                System.out.println("El id del producto es: " + idProductos.get(j));
-                                System.out.println("La cantidad es : " + cantidades.get(j) + "\n");
+                            for (int i = 0; i < producto.length(); i++) {
+                                productoObject = producto.getJSONObject(i);
+                                nombresAux += productoObject.getString("nombre");
+                                nombres.add(nombresAux);
+                                nombresAux = "";
+                                idProductos2.add(productoObject.getInt("idProducto"));
 
                             }
 
+                            PRODUCTOXFACTURA_URL = "http://192.168.1.15/api/productoxfactura/productosxfactura2.php";
+                            StringRequest stringRequest = new StringRequest(Request.Method.GET, PRODUCTOXFACTURA_URL,
+                                    new Response.Listener<String>() {
+                                        @Override
+                                        public void onResponse(String response) {
+                                            try {
+                                                JSONArray productoxfactura = new JSONArray(response);
 
+                                                for (int i = 0; i < productoxfactura.length(); i++) {
+                                                    JSONObject productoxfacturaObject = productoxfactura.getJSONObject(i);
+                                                    if(idProductos.contains(productoxfacturaObject.getInt("idProducto"))){
+                                                        int indice = idProductos.indexOf(productoxfacturaObject.getInt("idProducto"));
+                                                        cantidadesAux += Integer.parseInt(productoxfacturaObject.getString("cantidad"));
+                                                        int element = cantidades.get(indice);
+                                                        int resultado = element + cantidadesAux;
+                                                        cantidades.set(indice, resultado);
+                                                        cantidadesAux = 0;
+                                                    }
+                                                    else{
+                                                        idProductos.add(productoxfacturaObject.getInt("idProducto"));
+                                                        cantidades.add(Integer.parseInt(productoxfacturaObject.getString("cantidad")));
+
+
+                                                    }
+
+                                                }
+
+                                                Description description = new Description();
+                                                description.setText("Cantidad vendidad por cada producto");
+
+                                                ArrayList<PieEntry> pieEntries = new ArrayList<>();;
+                                                pieChart.setDescription(description);
+                                                for(int j = 0; j < idProductos.size(); j++){
+                                                    if(idProductos.get(j) == idProductos2.get(j)){
+                                                        int indice = idProductos.indexOf(idProductos.get(j));
+                                                        nombresAux += nombres.get(indice);
+                                                        nombres.set(indice, nombresAux);
+                                                        nombresAux = "";
+                                                    }
+                                                    pieEntries.add(new PieEntry(cantidades.get(j),nombres.get(j)));
+
+                                                }
+                                                PieDataSet pieDataSet = new PieDataSet(pieEntries, "");
+                                                pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
+                                                PieData pieData = new PieData(pieDataSet);
+
+                                                pieChart.setData(pieData);
+
+
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+
+                                        }
+                                    }, new Response.ErrorListener() {
+                                @Override
+                                public void onErrorResponse(VolleyError error) {
+                                    Toast.makeText(Estadisticas.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                                }
+                            });
+
+
+                            Volley.newRequestQueue(Estadisticas.this).add(stringRequest);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
@@ -99,35 +153,15 @@ public class Estadisticas extends AppCompatActivity {
             }
         });
 
+        Volley.newRequestQueue(this).add(stringRequest2);
 
-
-        Volley.newRequestQueue(this).add(stringRequest);
 
 
     }
 
 
-
-
     public void crearGraficoPastel(){
-        Description description = new Description();
-        description.setText("");
-        System.out.println("El tamaño del array de id de productos es: " + idProductos.size());
 
-        ArrayList<PieEntry> pieEntries = new ArrayList<>();;
-        pieChart.setDescription(description);
-
-        for(int j = 0; j < 5; j++){
-            pieEntries.add(new PieEntry(j,j+1));
-
-        }
-
-
-        PieDataSet pieDataSet = new PieDataSet(pieEntries, "Objetos más vendidos");
-        pieDataSet.setColors(ColorTemplate.COLORFUL_COLORS);
-        PieData pieData = new PieData(pieDataSet);
-
-        pieChart.setData(pieData);
 
     }
 

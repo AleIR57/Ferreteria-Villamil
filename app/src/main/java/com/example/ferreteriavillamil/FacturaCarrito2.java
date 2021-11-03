@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -40,8 +41,10 @@ public class FacturaCarrito2 extends AppCompatActivity {
     float precioPorCantidad;
     float precio;
     String resultado = "";
-    ArrayList<String> cantidades = new ArrayList<String>();
-    ArrayList<String> precios = new ArrayList<String>();
+    String cantidades = "";
+    String cantidades2 = "";
+    String precios = "";
+    String precios2 = "";
 
 
     @Override
@@ -63,7 +66,7 @@ public class FacturaCarrito2 extends AppCompatActivity {
         precioTotalProductos = findViewById(R.id.textViewPrecioTotalproducto);
 
         loadFacturas();
-        loadProductosxFactura();
+
 
         domicilio.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,6 +85,16 @@ public class FacturaCarrito2 extends AppCompatActivity {
                 startActivity(vVolver);
             }
         });
+
+        final Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                loadProductosxFactura();
+            }
+        }, 800);
+
+
 
     }
 
@@ -135,23 +148,17 @@ public class FacturaCarrito2 extends AppCompatActivity {
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        try {
-                            String cantidades = "";
-                            String cantidades2 = "";
-                            String precios = "";
-                            String precios2 = "";
-                            JSONArray productoxfactura = new JSONArray(response);
 
+                        try {
+
+                            JSONArray productoxfactura = new JSONArray(response);
                             for (int i = 0; i < productoxfactura.length(); i++) {
                                 JSONObject productoxfacturaObject = productoxfactura.getJSONObject(i);
-                                cantidades = productoxfacturaObject.getString("cantidad") + "\n";
-                                cantidades2 += cantidades;
-                                precios = productoxfacturaObject.getString("precio") + "\n";
-                                precios2 += precios;
-                                cantidadProductos.setText(cantidades2);
-                                precioProductos.setText(precios2);
+                                cantidades += productoxfacturaObject.getString("cantidad") + "\n";
+                                precios += productoxfacturaObject.getString("precio") + "\n";
+                                cantidadProductos.setText(cantidades);
+                                precioProductos.setText(precios);
                             }
-
 
 
                         } catch (JSONException e) {

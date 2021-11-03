@@ -8,6 +8,8 @@
     android:orientation="vertical"
     android:weightSum="3">
 
+
+
     <androidx.cardview.widget.CardView
         android:layout_margin="8dp"
         android:layout_width="match_parent"

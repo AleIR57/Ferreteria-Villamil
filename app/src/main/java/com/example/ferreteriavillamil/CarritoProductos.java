@@ -45,7 +45,7 @@ public class CarritoProductos extends AppCompatActivity implements ExampleDialoq
     String nombreCategoria;
     TextView t1;
     String resultado = "";
-    Button facturacarrito;
+    ImageButton facturacarrito;
     ImageButton borrar;
     int idProducto;
     String nombre;
