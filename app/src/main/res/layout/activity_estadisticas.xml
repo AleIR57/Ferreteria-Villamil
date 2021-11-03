@@ -6,15 +6,51 @@
     android:layout_height="match_parent"
     tools:context=".Estadisticas"
     android:orientation="vertical"
-    android:weightSum="3">
+    android:weightSum="6"
+    android:background="@drawable/background3">
+
+    <LinearLayout
+        android:id="@id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal"
+        android:background="@android:color/transparent"
+        android:weightSum="4">
+
+        <ImageButton
+            android:id="@+id/imageButtonVolver"
+            android:translationY="20dp"
+            android:layout_width="0dp"
+            android:layout_height="60dp"
+            android:layout_weight="0.5"
+            android:background="@drawable/ic_baseline_chevron_left_24"
+            ></ImageButton>
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="110dp"
+            android:layout_weight="3"
+            android:gravity="center"
+            android:text="Estadísticas"
+            android:textColor="@color/white"
+            android:textSize="30sp"
+            />
 
 
+        <Space
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
+    </LinearLayout>
 
     <androidx.cardview.widget.CardView
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
+        android:layout_weight="2.5">
         
         <com.github.mikephil.charting.charts.PieChart
             android:id="@+id/idGraficoPastel"
@@ -29,7 +65,7 @@
         android:layout_margin="8dp"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="2">
+        android:layout_weight="2.5">
 
         <com.github.mikephil.charting.charts.BarChart
             android:id="@+id/idGraficoBarras"
