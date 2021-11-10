@@ -199,8 +199,8 @@
                 android:id="@+id/textViewCantidadTexto2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"
-                android:gravity="center"
+                android:layout_weight="8"
+                android:gravity="center|top"
                 android:text="Cantidad"
                 android:textColor="#D5555555"
                 android:textSize="12sp" />
@@ -231,8 +231,8 @@
                 android:id="@+id/textViewNombreProductoTexto2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2.2"
-                android:gravity="center"
+                android:layout_weight="8.8"
+                android:gravity="center|top"
                 android:text="Detalle"
                 android:textColor="#D5555555"
                 android:textSize="12sp" />
@@ -264,8 +264,8 @@
                 android:id="@+id/textViewPrecioTexto2"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_weight="2"
-                android:gravity="center"
+                android:layout_weight="8"
+                android:gravity="center|top"
                 android:text="Precio"
                 android:textColor="#D5555555"
                 android:textSize="12sp" />

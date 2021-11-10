@@ -76,6 +76,7 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
             @Override
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(Domicilio.this, Clientes.class);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });
@@ -150,6 +151,7 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
                         barrio.setText("");
                         direccion.setText("");
                         Intent vApartado = new Intent(Domicilio.this, Clientes.class);
+                        vApartado.putExtra("idUsuario", String.valueOf(idUsuario));
                         startActivity(vApartado);
                     }
                 });

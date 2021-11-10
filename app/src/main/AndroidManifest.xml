@@ -24,7 +24,11 @@
         android:theme="@style/Theme.FerreteriaVillamil"
         android:usesCleartextTraffic="true">
         <activity android:name=".Estadisticas"></activity>
+        <activity android:name=".DetalleDomicilio"></activity>
+        <activity
+            android:name=".PedidosCliente"></activity>
         <activity android:name=".GestionDomicilio" />
+        <activity android:name=".EditarCliente" />
         <activity android:name=".ApartadoDomicilios" />
         <activity android:name=".Proveedor" />
         <activity android:name=".Domicilio" />

@@ -57,6 +57,9 @@ public class ListAdapterDomicilio extends RecyclerView.Adapter<ListAdapterDomici
         if(holder.estado.getText().toString().equals("En camino")){
             holder.estado.setTextColor(Color.parseColor("#FF4CAF50"));
         }
+        if(holder.estado.getText().toString().equals("Entregado")){
+            holder.estado.setTextColor(Color.parseColor("#7E7E7E"));
+        }
     }
 
     public void setItems(List<ListElementDomicilio> items) {mData =  items;}

@@ -79,6 +79,7 @@ public class DetalleProducto extends AppCompatActivity {
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(DetalleProducto.this, ApartadoProductos2.class);
                 vDomicilio.putExtra("idCategoria", String.valueOf(idCategoria));
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });

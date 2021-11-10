@@ -113,15 +113,9 @@ public class Factura extends AppCompatActivity {
         regresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vDomicilio = new Intent(Factura.this, VentaProducto.class);
-                vDomicilio.putExtra("idUsuario", idUsuario);
-                vDomicilio.putExtra("DetallesProductoID", String.valueOf(idProducto));
-                vDomicilio.putExtra("DetallesProductoNombre", String.valueOf(nombreProducto));
-                vDomicilio.putExtra("DetallesProductoMarca", String.valueOf(marca));
-                vDomicilio.putExtra("DetallesProductoDescripcion", String.valueOf(descripcion));
-                vDomicilio.putExtra("DetallesProductoPrecio", String.valueOf(precio));
-                vDomicilio.putExtra("DetallesProductoCantidad", String.valueOf(cantidad2));
-                vDomicilio.putExtra("DetallesProductoIdCategoria", String.valueOf(idCategoria));
+                Intent vDomicilio = new Intent(Factura.this, Clientes.class);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
+
                 startActivity(vDomicilio);
             }
         });

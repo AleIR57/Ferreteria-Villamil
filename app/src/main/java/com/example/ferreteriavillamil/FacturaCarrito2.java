@@ -38,6 +38,7 @@ public class FacturaCarrito2 extends AppCompatActivity {
     String cantidadTotal;
     String precioTotal;
     ImageButton domicilio, volver;
+    TextView  nombreUsuarioTV;
     float precioPorCantidad;
     float precio;
     String resultado = "";
@@ -56,7 +57,8 @@ public class FacturaCarrito2 extends AppCompatActivity {
         contadorFacturas2 = Integer.parseInt(contadorFacturas);
         domicilio = findViewById(R.id.imageButtonDomicilio);
         volver = findViewById(R.id.imageButtonVolver);
-
+        nombreUsuarioTV = findViewById(R.id.textViewNombreUsuario);
+        new FacturaCarrito2.Consultar(FacturaCarrito2.this).execute();
         System.out.println("El contador es: " + contadorFacturas2);
 
         nombreProductos = findViewById(R.id.textViewNombreProductoTexto2);
@@ -82,6 +84,7 @@ public class FacturaCarrito2 extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent vVolver = new Intent(FacturaCarrito2.this, Clientes.class);
+                vVolver.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vVolver);
             }
         });
@@ -97,6 +100,64 @@ public class FacturaCarrito2 extends AppCompatActivity {
 
 
     }
+
+    private Usuario consultar() throws JSONException, IOException {
+
+        String url = Constants.URL + "usuario/get-by-id.php"; // Ruta
+
+        //DATOS
+        List<NameValuePair> nameValuePairs; // lista de datos
+        nameValuePairs = new ArrayList<NameValuePair>(1);//definimos array
+        nameValuePairs.add(new BasicNameValuePair("id", String.valueOf(idUsuario))); // pasamos el id al servicio php
+
+        String json = APIHandler.POSTRESPONSE(url, nameValuePairs); // creamos var json que se le asocia la respuesta del webservice
+        if (json != null) { // si la respuesta no es vacia
+            JSONObject object = new JSONObject(json); // creamos el objeto json que recorrera el servicio
+            JSONArray json_array = object.optJSONArray("usuario");// accedemos al objeto json llamado multas
+            if (json_array.length() > 0) { // si lo encontrado tiene al menos un registro
+                Usuario usuario = new Usuario(json_array.getJSONObject(0));// instanciamos la clase multa para obtener los datos json
+
+                return usuario;// retornamos la multa
+            }
+            return null;
+        }
+        return null;
+    }
+
+    class Consultar extends AsyncTask<String, String, String> {
+        private Activity context;
+
+        Consultar(Activity context) {
+            this.context = context;
+        }
+
+        protected String doInBackground(String... params) {
+            try {
+                final Usuario usuario = consultar();
+                if (usuario != null)
+                    context.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            nombreUsuarioTV.setText(usuario.getNombre());
+
+                        }
+                    });
+                else
+                    context.runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Toast.makeText(context, "Usuario no encontrado", Toast.LENGTH_LONG).show();
+                        }
+                    });
+            } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return null;
+        }
+    }
+
 
     public void loadFacturas() {
 

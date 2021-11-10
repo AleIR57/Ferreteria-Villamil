@@ -1,15 +1,15 @@
 package com.example.ferreteriavillamil;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -30,7 +30,7 @@ import java.util.StringTokenizer;
 
 public class Clientes extends AppCompatActivity {
     List<ListElementCategoria> elements;
-    FloatingActionButton fab, fab2, fab3, fab4, fab5;
+    FloatingActionButton fab, fab2, fab3, fab4, fab5, fab6, fab7;
     String nombreAux, imagenAux;
     int  idVariableAux;
     Animation fabOpen, fabClose, rotateForward, rotateBackward;
@@ -39,6 +39,7 @@ public class Clientes extends AppCompatActivity {
     ListAdapterCategoria2 listAdapter, objeto1;
     RecyclerView recyclerView;
     String nombreCodigo, marcaCodigo, precioCodigo;
+
     private static final String CATEGORIA_URL = "http://192.168.1.15/api/categoria/categorias.php";
 
 
@@ -54,6 +55,8 @@ public class Clientes extends AppCompatActivity {
         fab3 = findViewById(R.id.fabCliente3);
         fab4 = findViewById(R.id.fabCliente4);
         fab5 = findViewById(R.id.fabCliente5);
+        fab6 = findViewById(R.id.fabCliente6);
+        fab7 = findViewById(R.id.fabCliente7);
 
         fabOpen = AnimationUtils.loadAnimation(this, R.anim.fab_open);
         fabClose = AnimationUtils.loadAnimation(this, R.anim.fab_close);
@@ -72,7 +75,7 @@ public class Clientes extends AppCompatActivity {
             public void onClick(View v) {
                 animateFab();
                 Intent vProductos = new Intent(Clientes.this, CarritoProductos.class);
-                vProductos.putExtra("idUsuario", idUsuario);
+                vProductos.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vProductos);
             }
         });
@@ -82,7 +85,7 @@ public class Clientes extends AppCompatActivity {
             public void onClick(View v) {
                 animateFab();
                 Intent vTarjetas = new Intent(Clientes.this, ApartadoTarjeta.class);
-                vTarjetas.putExtra("idUsuario", idUsuario);
+                vTarjetas.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vTarjetas);
             }
         });
@@ -112,6 +115,26 @@ public class Clientes extends AppCompatActivity {
                     integrador.setBarcodeImageEnabled(true);
                     integrador.initiateScan();
                 }
+            }
+        });
+
+        fab6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateFab();
+                Intent vTarjetas = new Intent(Clientes.this, EditarCliente.class);
+                vTarjetas.putExtra("idUsuario", String.valueOf(idUsuario));
+                startActivity(vTarjetas);
+            }
+        });
+
+        fab7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                animateFab();
+                Intent vTarjetas = new Intent(Clientes.this, PedidosCliente.class);
+                vTarjetas.putExtra("idUsuario", String.valueOf(idUsuario));
+                startActivity(vTarjetas);
             }
         });
 
@@ -148,10 +171,14 @@ public class Clientes extends AppCompatActivity {
             fab3.startAnimation(fabClose);
             fab4.startAnimation(fabClose);
             fab5.startAnimation(fabClose);
+            fab6.startAnimation(fabClose);
+            fab7.startAnimation(fabClose);
             fab2.setClickable(false);
             fab3.setClickable(false);
             fab4.setClickable(false);
             fab5.setClickable(false);
+            fab6.setClickable(false);
+            fab7.setClickable(false);
             isOpen=false;
         }
         else {
@@ -160,10 +187,14 @@ public class Clientes extends AppCompatActivity {
             fab3.startAnimation(fabOpen);
             fab4.startAnimation(fabOpen);
             fab5.startAnimation(fabOpen);
+            fab6.startAnimation(fabOpen);
+            fab7.startAnimation(fabOpen);
             fab2.setClickable(true);
             fab3.setClickable(true);
             fab4.setClickable(true);
             fab5.setClickable(true);
+            fab6.setClickable(true);
+            fab7.setClickable(true);
             isOpen=true;
         }
     }

@@ -94,6 +94,7 @@ public class CarritoProductos extends AppCompatActivity implements ExampleDialoq
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(CarritoProductos.this, Clientes.class);
                 vDomicilio.putExtra("idCategoria", idCategoria);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });
@@ -249,7 +250,6 @@ public class CarritoProductos extends AppCompatActivity implements ExampleDialoq
         int cantidad4 = Integer.parseInt(cantidad);
         boolean response = false;
         if(cantidadAux >= cantidad3) {
-
 
         int resultadoCantidades = 0;
         resultadoCantidades = cantidad4 - cantidad3;

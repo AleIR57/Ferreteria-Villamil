@@ -145,6 +145,7 @@ public class VentaProductos2 extends AppCompatActivity implements ExampleDialoq2
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(VentaProductos2.this, Clientes.class);
                 vDomicilio.putExtra("idCategoria", idCategoria);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });

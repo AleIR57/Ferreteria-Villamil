@@ -106,6 +106,7 @@ public class FacturaCarrito extends AppCompatActivity implements ExampleDialoq2.
             @Override
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(FacturaCarrito.this, CarritoProductos.class);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });

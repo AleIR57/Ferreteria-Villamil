@@ -1,9 +1,5 @@
 package com.example.ferreteriavillamil;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
-
 import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
@@ -16,6 +12,10 @@ import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
@@ -41,11 +41,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCallback {
+import static android.view.View.GONE;
+
+public class DetalleDomicilio extends AppCompatActivity implements OnMapReadyCallback {
     MapFragment mapFragment;
     TextView nombretv, ciudadtv, barriotv, direcciontv, cantidadProductos, preciotv, nombreproductotv;
     String ciudad, barrio, direccion, latitud, longitud, estado, PRODUCTO_URL, PRODUCTOXFACTURA_URL, resultado, latitudOrigen, longitudOrigen;
-    Button tomarPedido, finalizarPedido;
+    Button cancelarPedido;
     int idDomicilio, idUsuario, idFactura;
     ImageButton volver;
     boolean actualPosition = true;
@@ -53,7 +55,7 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gestion_domicilio);
+        setContentView(R.layout.activity_detalle_domicilio);
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         nombretv = findViewById(R.id.textViewNombre);
@@ -63,15 +65,13 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
         cantidadProductos = findViewById(R.id.textViewCantidad);
         preciotv = findViewById(R.id.textViewPrecio);
         nombreproductotv = findViewById(R.id.textViewNombreProducto);
-        tomarPedido = findViewById(R.id.botonTomarPedido);
-        finalizarPedido = findViewById(R.id.botonFinalizarPedido);
         volver = findViewById(R.id.imageButtonVolver);
-
+        cancelarPedido = findViewById(R.id.botonCancelarPedido);
         ListElementDomicilio element = (ListElementDomicilio) getIntent().getSerializableExtra("ListElementDomicilio");
         idDomicilio = element.getIdDomicilio();
         System.out.println("El id del domicilio es: " + idDomicilio);
         idUsuario = element.getIdUsuario();
-        new Consultar(GestionDomicilio.this).execute();
+        new Consultar(DetalleDomicilio.this).execute();
         idFactura = element.getIdFactura();
         loadFacturas();
         loadProductosxFactura();
@@ -86,32 +86,28 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
         estado = element.getEstado();
 
 
-
-        tomarPedido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                estado = "En camino";
-                new GestionDomicilio.Modificar(GestionDomicilio.this).execute();
-
-            }
-        });
-
-        finalizarPedido.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                estado = "Entregado";
-                new GestionDomicilio.Modificar(GestionDomicilio.this).execute();
-
-            }
-        });
-
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent vProveedor = new Intent(GestionDomicilio.this, Proveedor.class);
+                Intent vProveedor = new Intent(DetalleDomicilio.this, PedidosCliente.class);
+                vProveedor.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vProveedor);
             }
         });
+
+        if( estado.equals("Pendiente") || estado.equals("En camino")){
+            cancelarPedido.setOnClickListener(new View.OnClickListener() {
+
+                @Override
+                public void onClick(View view) {
+                    new Eliminar(DetalleDomicilio.this).execute();
+                }
+            });
+        }
+        else{
+            cancelarPedido.setVisibility(GONE);
+        }
+
 
     }
 
@@ -148,6 +144,7 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
                 }
             }
         });
+
         LatLng colombia = new LatLng(Double.parseDouble(latitud), Double.parseDouble(longitud));
         MarkerOptions marc = new MarkerOptions();
         marc.title("Domicilio");
@@ -200,7 +197,6 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
         // Other 'case' lines to check for other
         // permissions this app might request.
     }
-
 
 
 
@@ -291,7 +287,7 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(GestionDomicilio.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetalleDomicilio.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -328,7 +324,7 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(GestionDomicilio.this, error.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(DetalleDomicilio.this, error.getMessage(), Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -336,54 +332,46 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
 
     }
 
-    private boolean modificar() {
-        String url = Constants.URL + "domicilio/updateDomicilio.php";
+
+    private boolean eliminar() {
+
+        String url = Constants.URL + "domicilio/deleteDomicilio.php";
+
         //DATOS
         List<NameValuePair> nameValuePairs;
-        nameValuePairs = new ArrayList<NameValuePair>(9);
-        nameValuePairs.add(new BasicNameValuePair("idDomicilio", String.valueOf(idDomicilio)));
-        nameValuePairs.add(new BasicNameValuePair("estado", estado));
-
-        boolean response = APIHandler.POST(url, nameValuePairs); // enviamos los datos por POST al Webservice PHP
+        nameValuePairs = new ArrayList<NameValuePair>(3);
+        nameValuePairs.add(new BasicNameValuePair("id", String.valueOf(idDomicilio)));
+        boolean response = APIHandler.POST(url, nameValuePairs); // Enviamos el id al webservices
         return response;
     }
 
-    class Modificar extends AsyncTask<String, String, String> {
+    class Eliminar extends AsyncTask<String, String, String> {
         private Activity context;
 
-        Modificar(Activity context) {
+        Eliminar(Activity context) {
             this.context = context;
         }
 
         protected String doInBackground(String... params) {
-            if (modificar())
+            if (eliminar())
                 context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        if(estado == "En camino"){
-                            Toast.makeText(context, "Estás en camino a entregar el domicilio", Toast.LENGTH_LONG).show();
-                        }
-                        if(estado == "Entregado"){
-                            Toast.makeText(context, "Entregaste el domicilio", Toast.LENGTH_LONG).show();
-                        }
-
+                        Toast.makeText(context, "Producto eliminado correctamente", Toast.LENGTH_LONG).show();
+                        Intent vApartado = new Intent(DetalleDomicilio.this, PedidosCliente.class);
+                        vApartado.putExtra("idUsuario", String.valueOf(idUsuario));
+                        startActivity(vApartado);
                     }
                 });
             else
                 context.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        Toast.makeText(context, "No se pudo tomar o finalizar el domicilio", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, "No se ha podido eliminar el producto", Toast.LENGTH_LONG).show();
                     }
                 });
             return null;
         }
     }
-
-
-
-
-
-
 
 }

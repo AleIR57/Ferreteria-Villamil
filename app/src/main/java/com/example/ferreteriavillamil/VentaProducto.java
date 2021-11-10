@@ -76,7 +76,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         descripcion =  getIntent().getStringExtra("DetallesProductoDescripcion");
         precio = getIntent().getStringExtra("DetallesProductoPrecio");
         cantidad = getIntent().getStringExtra("DetallesProductoCantidad");
-        cantidad2 = cantidad;
+
         try{
             imagen = getIntent().getStringExtra("DetallesProductoImagen");
         }
@@ -109,6 +109,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         marcaTV.setText(marca + "");
         precioTV.setText(precio + "");
         cantidadTV.setText(cantidad + "");
+        cantidad2 = cantidadTV.getText().toString();
         new VentaProducto.Consultar(VentaProducto.this).execute();
 
         idPago.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
@@ -132,7 +133,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
             public void onClick(View v) {
                 String cantidad1 = cantidadET.getText().toString();
                 int cantidad2 = Integer.parseInt(cantidad1);
-                if (cantidad2 < cantidadAux) {
+                if (cantidad2 <= cantidadAux) {
                     new VentaProducto.Modificar(VentaProducto.this).execute();
 
                 }
@@ -147,11 +148,13 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
             public void onClick(View v) {
                 String cantidad1 = cantidadET.getText().toString();
 
-                if(cantidad1.equals("")){
-                    Toast.makeText(VentaProducto.this, "El campo de la cantidad a comprar no puede quedar vacío", Toast.LENGTH_SHORT).show();
-                }
-                else{
+                int cantidad2 = Integer.parseInt(cantidad1);
+                if (cantidad2 <= cantidadAux) {
                     registrarEnCarrito();
+
+                }
+                if(cantidad2 > cantidadAux || cantidad1.equals("")) {
+                    Toast.makeText(VentaProducto.this, "Digite una cantidad de compra correcta según la cantidad disponible del producto", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -163,7 +166,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
                 Intent vDomicilio = new Intent(VentaProducto.this, DetalleProducto.class);
                 vDomicilio.putExtra("idCategoria", idCategoria);
                 vDomicilio.putExtra("idProducto", idProducto);
-                vDomicilio.putExtra("idUsuario", idUsuario);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });
@@ -337,7 +340,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
             idPagoSpinner = 2;
         }
         Intent intent = new Intent(this, Factura.class);
-        intent.putExtra("idUsuario",idUsuario);
+        intent.putExtra("idUsuario", String.valueOf(idUsuario));
         intent.putExtra("VentaProductoID", idProducto);
         intent.putExtra("VentaProductoNombre", nombreProducto);
         intent.putExtra("VentaProductoMarca", marca);

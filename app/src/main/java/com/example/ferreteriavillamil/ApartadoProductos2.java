@@ -61,6 +61,7 @@ public class ApartadoProductos2 extends AppCompatActivity implements SearchView.
             @Override
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(ApartadoProductos2.this, Clientes.class);
+                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vDomicilio);
             }
         });

@@ -26,6 +26,7 @@ public class ApartadoTarjeta extends AppCompatActivity {
     ListAdapterTarjeta listAdapter, objeto1;
     RecyclerView recyclerView;
     int idTarjeta;
+    String idUsuario;
     String nombreTitular, numeroTarjeta, codigoCVC, fechaExpiracion, nombreEntidadBancaria, imagen;
     ImageButton volver;
 
@@ -34,11 +35,13 @@ public class ApartadoTarjeta extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_apartado_tarjeta);
         volver = findViewById(R.id.imageButtonVolver);
+        idUsuario = getIntent().getStringExtra("idUsuario");
 
         volver.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent vVolver = new Intent(ApartadoTarjeta.this, Clientes.class);
+                vVolver.putExtra("idUsuario", String.valueOf(idUsuario));
                 startActivity(vVolver);
             }
         });
