@@ -7,7 +7,7 @@ import org.json.JSONObject;
 public class Usuario {
 
 
-    String nombre, correo, contrasena, direccion;
+    String nombre, correo, contrasena, direccion, imagen;
     int idUsuario, idRol, telefono, identificacion;
 
     public Usuario(JSONObject objetoJSON) throws JSONException {
@@ -19,6 +19,7 @@ public class Usuario {
         this.idRol = objetoJSON.getInt("idRol");
         this.telefono = objetoJSON.getInt("telefono");
         this.identificacion = objetoJSON.getInt("identificacion");
+        this.imagen = objetoJSON.getString("imagen");
     }
 
     public String getNombre() {
@@ -84,6 +85,14 @@ public class Usuario {
 
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
 

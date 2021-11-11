@@ -10,14 +10,16 @@ public class ListElement implements Serializable {
     public String correo;
     public int idUsuario;
     public int identificacion;
+    public String imagen;
     public String color2;
 
-    public ListElement(String color, String name, String correo, int idUsuario, int identificacion, String color2) {
+    public ListElement(String color, String name, String correo, int idUsuario, int identificacion, String imagen, String color2) {
         this.color = color;
         this.name = name;
         this.correo = correo;
         this.idUsuario = idUsuario;
         this.identificacion = identificacion;
+        this.imagen = imagen;
         this.color2 = color2;
     }
 
@@ -62,6 +64,14 @@ public class ListElement implements Serializable {
 
     public void setIdentificacion(int identificacion) {
         this.identificacion = identificacion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 
     public String getColor2() {

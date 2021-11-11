@@ -4,15 +4,22 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.provider.MediaStore;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.squareup.picasso.Picasso;
 
 import org.apache.http.NameValuePair;
 import org.apache.http.message.BasicNameValuePair;
@@ -20,6 +27,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,10 +36,14 @@ public class DescriptionActivity extends AppCompatActivity {
 
     TextView nombre, correo, contrasena, telefono, direccion, identificacion;
     Spinner idRol;
-    Button eliminar, modificar;
+    Button eliminar, modificar, tomarfoto;
     int idRolSpinner;
     int idUsuario;
+    String foto;
+    static final int REQUEST_IMAGE_CAPTURE = 1;
     ImageButton usuario;
+    Bitmap imageBitmap;
+    ImageView imageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +61,9 @@ public class DescriptionActivity extends AppCompatActivity {
         identificacion = findViewById(R.id.EditTextIdentificacionGestion);
         idRol = findViewById(R.id.spinnerRolesGestion);
         usuario = findViewById(R.id.imageButtonUsuario);
+        tomarfoto = findViewById(R.id.botonTomarFoto);
+        imageView = findViewById(R.id.imageView);
+
 
         String [] opciones = {"Usuario", "Administrador", "Proveedor"};
 
@@ -79,6 +94,13 @@ public class DescriptionActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent vDomicilio = new Intent(DescriptionActivity.this, ApartadoUsuarios.class);
                 startActivity(vDomicilio);
+            }
+        });
+
+        tomarfoto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                tomarFoto();
             }
         });
 
@@ -172,6 +194,11 @@ public class DescriptionActivity extends AppCompatActivity {
                             telefono.setText(usuario.getTelefono() + "");
                             direccion.setText(usuario.getDireccion());
                             identificacion.setText(usuario.getIdentificacion() + "");
+                            System.out.println("La imagen es: " + usuario.getImagen());
+                                foto = usuario.getImagen();
+                                imageBitmap = convert(usuario.getImagen());
+                                imageView.setImageBitmap(convert(foto));
+
                         }
                     });
                 else
@@ -217,7 +244,7 @@ public class DescriptionActivity extends AppCompatActivity {
         nameValuePairs.add(new BasicNameValuePair("direccion", direccion.getText().toString().trim()));
         nameValuePairs.add(new BasicNameValuePair("identificacion", identificacion.getText().toString().trim()));
         nameValuePairs.add(new BasicNameValuePair("idRol", String.valueOf(idRolSpinner).trim()));
-
+        nameValuePairs.add(new BasicNameValuePair("imagen", convert(imageBitmap)));
 
         boolean response = APIHandler.POST(url, nameValuePairs); // enviamos los datos por POST al Webservice PHP
         return response;
@@ -249,6 +276,45 @@ public class DescriptionActivity extends AppCompatActivity {
                 });
             return null;
         }
+    }
+
+    public void tomarFoto() {
+        Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+            startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE);
+        }
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE_CAPTURE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            imageBitmap = (Bitmap) extras.get("data");
+
+            imageView.setImageBitmap(imageBitmap);
+            System.out.println("La imagen es: " + imageBitmap);
+
+
+        }
+    }
+
+    public static Bitmap convert(String base64Str) throws IllegalArgumentException
+    {
+        byte[] decodedBytes = Base64.decode(
+                base64Str.substring(base64Str.indexOf(",")  + 1),
+                Base64.DEFAULT
+        );
+
+        return BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+    }
+
+    public static String convert(Bitmap bitmap)
+    {
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        bitmap.compress(Bitmap.CompressFormat.PNG, 100, outputStream);
+
+        return Base64.encodeToString(outputStream.toByteArray(), Base64.DEFAULT);
     }
 
 

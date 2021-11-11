@@ -6,8 +6,11 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Base64;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.SearchView;
@@ -26,6 +29,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +44,7 @@ public class ApartadoUsuarios extends AppCompatActivity implements SearchView.On
     ListAdapter listAdapter, objeto1;
     RecyclerView recyclerView;
     ImageButton administrador;
+    Bitmap imageBitmap;
     private static final String USUARIO_URL = "http://192.168.1.15/api/usuario/usuarios.php";
 
     @Override
@@ -99,8 +104,9 @@ public class ApartadoUsuarios extends AppCompatActivity implements SearchView.On
                                 String direccion = usuarioObject.getString("direccion");
                                 int identificacion = usuarioObject.getInt("identificacion");
                                 int idRol = usuarioObject.getInt("idRol");
+                                String foto = usuarioObject.getString("imagen");
 
-                                elements.add(new ListElement("#3381CF", nombre, correo, idUsuario, identificacion,"#3381CF"));
+                                elements.add(new ListElement("#3381CF", nombre, correo, idUsuario, identificacion, foto,"#3381CF"));
 
 
                             }
@@ -154,4 +160,7 @@ public class ApartadoUsuarios extends AppCompatActivity implements SearchView.On
         listAdapter.filtrado(newText);
         return false;
     }
+
+
+
 }
