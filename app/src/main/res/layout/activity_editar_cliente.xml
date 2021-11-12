@@ -57,13 +57,13 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75" />
+            android:layout_weight="0.6" />
 
         <androidx.cardview.widget.CardView
 
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"
+            android:layout_weight="1.8"
             android:elevation="10dp"
             app:cardCornerRadius="150dp">
 
@@ -81,7 +81,7 @@
         <Space
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="0.75" />
+            android:layout_weight="0.6" />
 
     </LinearLayout>
 
@@ -110,10 +110,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Nombre"
+            android:drawableRight="@drawable/ic_baseline_person_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -147,9 +149,10 @@
             android:gravity="left|center"
             android:hint="Correo"
             android:paddingLeft="12sp"
-
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:paddingRight="12sp"
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -182,9 +185,10 @@
             android:gravity="left|center"
             android:hint="Contraseña"
             android:inputType="textPassword"
-
+            android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -217,9 +221,10 @@
             android:gravity="left|center"
             android:hint="Telefono"
             android:inputType="number"
-
+            android:drawableRight="@drawable/ic_baseline_phone_enabled_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -252,9 +257,10 @@
             android:gravity="left|center"
             android:hint="Dirección"
             android:inputType="text"
-
+            android:drawableRight="@drawable/ic_baseline_location_on_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -287,9 +293,10 @@
             android:gravity=""
             android:hint="Identificación"
             android:inputType="number"
-
+            android:drawableRight="@drawable/ic_baseline_credit_card2_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -328,7 +335,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
         <Button
@@ -338,10 +345,10 @@
             android:layout_weight="1"
             android:layout_gravity="center"
             android:text="Cambiar foto"
-            android:textSize="12sp"
+            android:textSize="10sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
         <Space

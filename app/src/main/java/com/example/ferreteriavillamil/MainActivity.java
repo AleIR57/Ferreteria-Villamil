@@ -40,7 +40,7 @@ public class MainActivity extends AppCompatActivity {
         irARegistro = (TextView) findViewById(R.id.textView2);
 
         SpannableString mensaje = new SpannableString("¿Eres nuevo? ¡Regístrate!");
-        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#ef5350"));// Puedes usar tambien .. new ForegroundColorSpan(Color.RED);
+        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#fd1251"));// Puedes usar tambien .. new ForegroundColorSpan(Color.RED);
         mensaje.setSpan(colorSpan, 13, 25, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         irARegistro.setText(mensaje);
 

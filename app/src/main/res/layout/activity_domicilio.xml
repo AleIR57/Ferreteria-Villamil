@@ -67,10 +67,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Ciudad"
+            android:drawableRight="@drawable/ic_baseline_location_city_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -103,9 +105,10 @@
             android:gravity="left|center"
             android:hint="Barrio"
             android:paddingLeft="12sp"
-
+            android:drawableRight="@drawable/ic_baseline_house_24"
+            android:paddingRight="12sp"
             android:inputType="text"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -138,7 +141,8 @@
             android:gravity="left|center"
             android:hint="Dirección"
             android:paddingLeft="12sp"
-
+            android:drawableRight="@drawable/ic_baseline_location_city_24"
+            android:paddingRight="12sp"
             android:inputType="text"
             android:textColor="#ef5350" />
 
@@ -212,7 +216,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

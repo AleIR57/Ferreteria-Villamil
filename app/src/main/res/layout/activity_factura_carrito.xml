@@ -89,7 +89,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

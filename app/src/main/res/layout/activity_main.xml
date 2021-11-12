@@ -62,9 +62,9 @@
             android:layout_height="match_parent"
             android:layout_weight="2.8"
             android:baselineAligned="false"
+            android:textColor="@color/black"
             android:gravity="center|bottom"
             android:text="Inicia sesión para continuar"
-            android:textColor="#D58C8C8C"
             android:textSize="18sp" />
         <Space
             android:layout_width="0dp"
@@ -101,9 +101,11 @@
             android:gravity="left|center"
             android:hint="Correo"
             android:paddingLeft="12sp"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:paddingRight="12sp"
 
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+         />
 
         <Space
             android:layout_width="0dp"
@@ -135,9 +137,11 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Contraseña"
+            android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
             android:inputType="textPassword"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -145,6 +149,8 @@
             android:layout_weight="1" />
 
     </LinearLayout>
+
+
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -164,8 +170,8 @@
             android:layout_height="match_parent"
             android:layout_weight="3.2"
             android:gravity="center"
+            android:textColor="@color/black"
             android:text="¿Olvidaste tu contraseña?"
-            android:textColor="#D58C8C8C"
             android:textSize="18sp" />
 
 
@@ -199,7 +205,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 
@@ -232,7 +238,7 @@
             android:onClick="activityRegistro"
             android:clickable="true"
             android:text="¿Eres nuevo? ¡Regístrate!"
-            android:textColor="#D58C8C8C"
+            android:textColor="@color/black"
             android:textSize="18sp" />
 
         <Space

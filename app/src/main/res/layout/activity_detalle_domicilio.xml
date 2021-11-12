@@ -338,7 +338,7 @@
             android:layout_gravity="center"
 
             android:layout_weight="1"
-            android:backgroundTint="#ef5350"
+            android:backgroundTint="#3F51B5"
             android:text="Cancelar pedido"
             android:textColor="@color/white"
             android:textSize="12sp"

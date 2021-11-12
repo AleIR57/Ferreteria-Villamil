@@ -110,10 +110,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Nombre"
+            android:drawableRight="@drawable/ic_baseline_person_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -146,10 +148,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Correo"
+            android:drawableRight="@drawable/ic_baseline_email_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -181,10 +185,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Contraseña"
+            android:drawableRight="@drawable/ic_baseline_remove_red_eye_24"
+            android:paddingRight="12sp"
             android:inputType="textPassword"
 
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -219,7 +225,9 @@
             android:inputType="number"
 
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            android:drawableRight="@drawable/ic_baseline_phone_enabled_24"
+            android:paddingRight="12sp"
+            />
 
         <Space
             android:layout_width="0dp"
@@ -252,9 +260,10 @@
             android:gravity="left|center"
             android:hint="Dirección"
             android:inputType="text"
-
+            android:drawableRight="@drawable/ic_baseline_location_on_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -289,7 +298,9 @@
             android:inputType="number"
 
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            android:drawableRight="@drawable/ic_baseline_credit_card2_24"
+            android:paddingRight="12sp"
+            />
 
         <Space
             android:layout_width="0dp"
@@ -353,7 +364,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
         <Button
             android:id="@+id/botonTomarFoto"
@@ -363,10 +374,9 @@
             android:layout_gravity="center"
             android:text="Tomar foto"
             android:textSize="12sp"
-
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

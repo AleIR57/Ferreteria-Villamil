@@ -45,10 +45,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Nombre"
+            android:drawableRight="@drawable/ic_baseline_person_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -82,6 +84,8 @@
             android:gravity="left|center"
             android:hint="Numero de la tarjeta"
             android:paddingLeft="12sp"
+            android:drawableRight="@drawable/ic_baseline_filter_1_24"
+            android:paddingRight="12sp"
             android:textColor="#ef5350" />
 
         <Space
@@ -115,9 +119,10 @@
             android:gravity="left|center"
             android:hint="Código CVV/CVC"
             android:inputType="textPassword"
-
+            android:drawableRight="@drawable/ic_baseline_filter_9_plus_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -150,9 +155,10 @@
             android:gravity="left|center"
             android:hint="Fecha de expiración"
             android:inputType="number"
-
+            android:drawableRight="@drawable/ic_baseline_date_range_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -185,9 +191,10 @@
             android:gravity="left|center"
             android:hint="Nombre de la entidad bancaria"
             android:inputType="text"
-
+            android:drawableRight="@drawable/ic_baseline_account_balance_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -222,7 +229,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

@@ -24,6 +24,7 @@
             android:layout_width="0dp"
             android:layout_height="80dp"
             android:layout_weight="0.5"
+
             android:background="@drawable/ic_baseline_chevron_left_24"
             ></ImageButton>
 
@@ -74,10 +75,12 @@
             android:ems="14"
             android:gravity="left|center"
             android:hint="Nombre"
+            android:drawableRight="@drawable/ic_baseline_category_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -111,9 +114,11 @@
             android:gravity="left|center"
             android:hint="URL de la imagen"
             android:paddingLeft="12sp"
+            android:drawableRight="@drawable/ic_baseline_link_24"
+            android:paddingRight="12sp"
 
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -149,7 +154,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

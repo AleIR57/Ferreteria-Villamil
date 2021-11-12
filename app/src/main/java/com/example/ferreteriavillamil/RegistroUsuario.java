@@ -50,7 +50,7 @@ public class RegistroUsuario extends AppCompatActivity {
         imageView = findViewById(R.id.imageView);
 
         SpannableString mensaje = new SpannableString("¿Ya tienes una cuenta? ¡Inicia Sesión!");
-        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#ef5350"));// Puedes usar tambien .. new ForegroundColorSpan(Color.RED);
+        ForegroundColorSpan colorSpan = new ForegroundColorSpan(Color.parseColor("#fd1251"));// Puedes usar tambien .. new ForegroundColorSpan(Color.RED);
         mensaje.setSpan(colorSpan, 23, 38, Spannable.SPAN_INCLUSIVE_INCLUSIVE);
         irARegistro.setText(mensaje);
 
