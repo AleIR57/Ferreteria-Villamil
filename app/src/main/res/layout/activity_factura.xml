@@ -16,15 +16,11 @@
         android:orientation="horizontal"
         android:background="@android:color/transparent"
         android:weightSum="4">
-
-        <ImageButton
-            android:id="@+id/imageButtonRegresar"
-            android:translationY="25dp"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/ic_baseline_chevron_left_24"
-            ></ImageButton>
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
+
 
         <TextView
             android:id="@+id/textView22"

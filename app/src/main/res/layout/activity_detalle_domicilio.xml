@@ -97,6 +97,7 @@
             android:gravity="start"
             android:text="Nombre producto"
             android:textColor="@color/white"
+            android:scrollbars = "vertical"
             android:textSize="15sp" />
 
         <TextView
@@ -106,6 +107,7 @@
             android:layout_weight="1.5"
             android:gravity="center|top"
             android:text="Cantidad"
+            android:scrollbars = "vertical"
             android:textColor="@color/white"
             android:textSize="15sp" />
 
@@ -117,7 +119,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.8"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -131,7 +133,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="start"
+            android:gravity="bottom"
             android:text="Precio total"
             android:textColor="@color/white"
             android:textSize="15sp" />

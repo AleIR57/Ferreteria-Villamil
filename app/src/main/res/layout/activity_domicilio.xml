@@ -17,14 +17,10 @@
         android:background="@android:color/transparent"
         android:weightSum="4">
 
-        <ImageButton
-            android:id="@+id/imageButtonVolver"
+        <Space
             android:layout_width="0dp"
-            android:layout_height="60dp"
-            android:translationY="30dp"
-            android:layout_weight="0.5"
-            android:background="@drawable/ic_baseline_chevron_left_24"
-            ></ImageButton>
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5" />
 
         <TextView
             android:id="@+id/textView"
@@ -144,7 +140,7 @@
             android:drawableRight="@drawable/ic_baseline_location_city_24"
             android:paddingRight="12sp"
             android:inputType="text"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"

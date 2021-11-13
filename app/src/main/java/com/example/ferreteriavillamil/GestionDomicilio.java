@@ -11,6 +11,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -66,6 +67,8 @@ public class GestionDomicilio extends AppCompatActivity implements OnMapReadyCal
         tomarPedido = findViewById(R.id.botonTomarPedido);
         finalizarPedido = findViewById(R.id.botonFinalizarPedido);
         volver = findViewById(R.id.imageButtonVolver);
+        nombreproductotv.setMovementMethod(new ScrollingMovementMethod());
+        cantidadProductos.setMovementMethod(new ScrollingMovementMethod());
 
         ListElementDomicilio element = (ListElementDomicilio) getIntent().getSerializableExtra("ListElementDomicilio");
         idDomicilio = element.getIdDomicilio();

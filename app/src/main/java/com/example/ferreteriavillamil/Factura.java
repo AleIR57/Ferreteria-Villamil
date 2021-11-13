@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -73,7 +74,6 @@ public class Factura extends AppCompatActivity {
         idPagoSpinner = getIntent().getStringExtra("VentaProductoIdPago");
         System.out.println("El id del pago es: " + idPagoSpinner);
         domicilio = findViewById(R.id.imageButtonDomicilio);
-        regresar = findViewById(R.id.imageButtonRegresar);
         nombreTV = findViewById(R.id.textViewNombreProducto);
         marcaTV = findViewById(R.id.textViewMarcaProducto);
         precioTV = findViewById(R.id.textViewPrecioUnitarioProducto);
@@ -110,15 +110,7 @@ public class Factura extends AppCompatActivity {
             }
         });
 
-        regresar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent vDomicilio = new Intent(Factura.this, Clientes.class);
-                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
 
-                startActivity(vDomicilio);
-            }
-        });
 
 
     }
@@ -306,6 +298,9 @@ public class Factura extends AppCompatActivity {
     }
 
 
+    @Override public void onBackPressed() { }
+
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event) { if(keyCode== KeyEvent.KEYCODE_BACK) { return false; } return super.onKeyDown(keyCode, event); }
 
 
 

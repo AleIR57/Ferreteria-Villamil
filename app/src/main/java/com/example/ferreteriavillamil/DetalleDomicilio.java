@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -84,7 +85,8 @@ public class DetalleDomicilio extends AppCompatActivity implements OnMapReadyCal
         latitud = element.getLatitud();
         longitud = element.getLongitud();
         estado = element.getEstado();
-
+        nombreproductotv.setMovementMethod(new ScrollingMovementMethod());
+        cantidadProductos.setMovementMethod(new ScrollingMovementMethod());
 
         volver.setOnClickListener(new View.OnClickListener() {
             @Override

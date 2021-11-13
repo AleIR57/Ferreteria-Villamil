@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 
 public class Administrador extends AppCompatActivity {
@@ -28,4 +29,8 @@ public class Administrador extends AppCompatActivity {
         Intent vInforme = new Intent(this, Informes.class);
         startActivity(vInforme);
     }
+
+    @Override public void onBackPressed() { }
+
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event) { if(keyCode== KeyEvent.KEYCODE_BACK) { return false; } return super.onKeyDown(keyCode, event); }
 }

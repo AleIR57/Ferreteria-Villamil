@@ -133,13 +133,14 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
             public void onClick(View v) {
                 String cantidad1 = cantidadET.getText().toString();
                 int cantidad2 = Integer.parseInt(cantidad1);
-                if (cantidad2 <= cantidadAux) {
+                if(cantidad2 > cantidadAux || cantidad1.equals("") || cantidad2 <= 0) {
+                    Toast.makeText(VentaProducto.this, "Digite una cantidad de compra correcta según la cantidad disponible del producto", Toast.LENGTH_SHORT).show();
+                }
+                else if (cantidad2 <= cantidadAux) {
                     new VentaProducto.Modificar(VentaProducto.this).execute();
 
                 }
-                if(cantidad2 > cantidadAux || cantidad1.equals("")) {
-                    Toast.makeText(VentaProducto.this, "Digite una cantidad de compra correcta según la cantidad disponible del producto", Toast.LENGTH_SHORT).show();
-                }
+
             }
         });
 
@@ -149,13 +150,14 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
                 String cantidad1 = cantidadET.getText().toString();
 
                 int cantidad2 = Integer.parseInt(cantidad1);
-                if (cantidad2 <= cantidadAux) {
+                if(cantidad2 > cantidadAux || cantidad1.equals("") || cantidad2 <= 0) {
+                    Toast.makeText(VentaProducto.this, "Digite una cantidad de compra correcta según la cantidad disponible del producto", Toast.LENGTH_SHORT).show();
+                }
+                else if (cantidad2 <= cantidadAux) {
                     registrarEnCarrito();
 
                 }
-                if(cantidad2 > cantidadAux || cantidad1.equals("")) {
-                    Toast.makeText(VentaProducto.this, "Digite una cantidad de compra correcta según la cantidad disponible del producto", Toast.LENGTH_SHORT).show();
-                }
+
 
             }
         });
@@ -251,6 +253,7 @@ public class VentaProducto extends AppCompatActivity implements ExampleDialoq2.E
         registro.put("idCategoria", idCategoria);
         bd.insert("productos", null, registro);
         bd.close();
+        cantidadET.setText("");
         Toast.makeText(this, "El producto fue añadido al carrito exitosamente", Toast.LENGTH_SHORT).show();
 
 

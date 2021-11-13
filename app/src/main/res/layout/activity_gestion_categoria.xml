@@ -78,7 +78,7 @@
             android:paddingLeft="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+          />
 
         <Space
             android:layout_width="0dp"
@@ -115,7 +115,7 @@
             android:drawableRight="@drawable/ic_baseline_link_24"
             android:paddingRight="12sp"
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"

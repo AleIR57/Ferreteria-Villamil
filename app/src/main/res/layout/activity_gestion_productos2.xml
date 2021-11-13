@@ -73,9 +73,11 @@
             android:gravity="left|center"
             android:hint="Nombre"
             android:paddingLeft="12sp"
+            android:drawableRight="@drawable/ic_baseline_category_24"
+            android:paddingRight="12sp"
 
             android:inputType="text"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -109,9 +111,10 @@
             android:gravity="left|center"
             android:hint="Marca"
             android:paddingLeft="12sp"
-
+            android:drawableRight="@drawable/ic_baseline_bookmark_24"
+            android:paddingRight="12sp"
             android:inputType="textEmailAddress"
-            android:textColor="#ef5350" />
+            />
 
         <Space
             android:layout_width="0dp"
@@ -144,9 +147,10 @@
             android:gravity="left|center"
             android:hint="Descripción"
             android:inputType="text"
-
+            android:drawableRight="@drawable/ic_baseline_description_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -179,9 +183,10 @@
             android:gravity="left|center"
             android:hint="Precio"
             android:inputType="number"
-
+            android:drawableRight="@drawable/ic_baseline_monetization_on_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -214,9 +219,10 @@
             android:gravity="left|center"
             android:hint="URL de la imagen"
             android:inputType="text"
-
+            android:drawableRight="@drawable/ic_baseline_link_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -249,9 +255,10 @@
             android:gravity=""
             android:hint="Cantidad"
             android:inputType="number"
-
+            android:drawableRight="@drawable/ic_baseline_filter_9_plus_24"
+            android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"
@@ -285,7 +292,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
         <Button
             android:id="@+id/botonModificar"
@@ -298,7 +305,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

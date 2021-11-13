@@ -8,6 +8,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
@@ -56,7 +57,6 @@ public class FacturaCarrito2 extends AppCompatActivity {
         idUsuario = getIntent().getStringExtra("idUsuario");
         contadorFacturas2 = Integer.parseInt(contadorFacturas);
         domicilio = findViewById(R.id.imageButtonDomicilio);
-        volver = findViewById(R.id.imageButtonVolver);
         nombreUsuarioTV = findViewById(R.id.textViewNombreUsuario);
         new FacturaCarrito2.Consultar(FacturaCarrito2.this).execute();
         System.out.println("El contador es: " + contadorFacturas2);
@@ -80,14 +80,7 @@ public class FacturaCarrito2 extends AppCompatActivity {
             }
         });
 
-        volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent vVolver = new Intent(FacturaCarrito2.this, Clientes.class);
-                vVolver.putExtra("idUsuario", String.valueOf(idUsuario));
-                startActivity(vVolver);
-            }
-        });
+
 
         final Handler handler = new Handler();
         handler.postDelayed(new Runnable() {
@@ -240,6 +233,11 @@ public class FacturaCarrito2 extends AppCompatActivity {
 
 
     }
+
+
+    @Override public void onBackPressed() { }
+
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event) { if(keyCode== KeyEvent.KEYCODE_BACK) { return false; } return super.onKeyDown(keyCode, event); }
 
 
 

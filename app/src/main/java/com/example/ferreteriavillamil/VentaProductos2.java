@@ -234,6 +234,7 @@ public class VentaProductos2 extends AppCompatActivity implements ExampleDialoq2
         registro.put("idCategoria", idCategoria);
         bd.insert("productos", null, registro);
         bd.close();
+        cantidadET.setText("");
         Toast.makeText(this, "El producto fue añadido al carrito exitosamente", Toast.LENGTH_SHORT).show();
 
 

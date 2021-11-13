@@ -257,7 +257,7 @@
             android:drawableRight="@drawable/ic_baseline_filter_9_plus_24"
             android:paddingRight="12sp"
             android:paddingLeft="12sp"
-            android:textColor="#ef5350" />
+             />
 
         <Space
             android:layout_width="0dp"

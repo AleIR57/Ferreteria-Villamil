@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
                     Intent vClientes = new Intent(this, Clientes.class);
                     vClientes.putExtra("idUsuario", String.valueOf(idUsuario));
                     startActivity(vClientes);
+
                 }
 
                 if(rol == 2){

@@ -96,6 +96,7 @@
             android:gravity="start"
             android:text="Nombre producto"
             android:textColor="@color/white"
+            android:scrollbars = "vertical"
             android:textSize="15sp" />
 
         <TextView
@@ -106,6 +107,7 @@
             android:gravity="center|top"
             android:text="Cantidad"
             android:textColor="@color/white"
+            android:scrollbars = "vertical"
             android:textSize="15sp" />
 
 
@@ -116,7 +118,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.5"
+        android:layout_weight="0.8"
         android:orientation="horizontal"
         android:weightSum="3">
 
@@ -130,7 +132,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="start"
+            android:gravity="bottom"
             android:text="Precio total"
             android:textColor="@color/white"
             android:textSize="15sp" />
@@ -337,10 +339,11 @@
             android:layout_gravity="center"
 
             android:layout_weight="1"
-            android:backgroundTint="#ef5350"
+            android:backgroundTint="#3F51B5"
             android:text="Tomar pedido"
             android:textColor="@color/white"
             android:textSize="12sp"
+
             app:cornerRadius="50dp" />
 
         <Button
@@ -353,7 +356,7 @@
             android:textSize="12sp"
             android:textColor="@color/white"
             app:cornerRadius="50dp"
-            android:backgroundTint="#ef5350"/>
+            android:backgroundTint="#3F51B5"/>
 
 
 

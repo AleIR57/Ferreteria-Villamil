@@ -7,6 +7,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -32,7 +33,7 @@ import java.util.List;
 public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
     MapFragment mapFragment;
     TextView prueba;
-    String latitud, longitud, idUsuario, idFactura;
+    String latitud = "", longitud = "", idUsuario, idFactura;
     Button insertar;
     EditText ciudad, barrio, direccion;
     ImageButton volver;
@@ -43,7 +44,6 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         prueba = findViewById(R.id.textView2);
-        volver = findViewById(R.id.imageButtonVolver);
 
         idUsuario = getIntent().getStringExtra("idUsuario");
         idFactura = getIntent().getStringExtra("idFactura");
@@ -59,10 +59,11 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
 
             @Override
             public void onClick(View view) {
-
+                String prueba2 = prueba.getText().toString();
                 if ((!ciudad.getText().toString().trim().equalsIgnoreCase("")) ||
                         (!barrio.getText().toString().trim().equalsIgnoreCase("")) ||
-                        (!direccion.getText().toString().trim().equalsIgnoreCase(""))){
+                        (!direccion.getText().toString().trim().equalsIgnoreCase("")) ||
+                        (!prueba2.equals("Seleccione la ubicación de destino"))){
 
                     new Domicilio.Registrar(Domicilio.this).execute();
                 } else {
@@ -72,14 +73,6 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
             }
         });
 
-        volver.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent vDomicilio = new Intent(Domicilio.this, Clientes.class);
-                vDomicilio.putExtra("idUsuario", String.valueOf(idUsuario));
-                startActivity(vDomicilio);
-            }
-        });
     }
 
     @Override
@@ -166,6 +159,9 @@ public class Domicilio extends AppCompatActivity implements OnMapReadyCallback {
         }
     }
 
+    @Override public void onBackPressed() { }
+
+    @Override public boolean onKeyDown(int keyCode, KeyEvent event) { if(keyCode== KeyEvent.KEYCODE_BACK) { return false; } return super.onKeyDown(keyCode, event); }
 
 
 
